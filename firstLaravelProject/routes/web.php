@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\UserController;
+use App\Models\Flight;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -34,3 +36,5 @@ use Illuminate\Support\Facades\Route;
 // Route::get("login/{name}", [UserController::class, "login"]);
 
 Route::get("/welcome", [UserController::class, "greetings"]);
+
+Route::get("/flights", [FlightsController::class, "index"]);
