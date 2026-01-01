@@ -20,9 +20,10 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-
-<h2>flight's Table</h2>
-
+<div style="display: flex; justify-content: space-around">
+  <h2>flight's Table</h2>
+  <a href="{{ route("create_flights") }}" class="btn" style="padding: 10px; align-self: center; font-size: 25px;color: #ffffff; background-color:#20479c; border-radius: 10px">add new</a>
+</div>
 <table>
   <tr>
     <th>name</th>

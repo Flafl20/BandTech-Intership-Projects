@@ -37,4 +37,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/welcome", [UserController::class, "greetings"]);
 
-Route::get("/flights", [FlightsController::class, "index"]);
+Route::prefix("flights")->group(function () {
+
+    Route::get("/", [FlightsController::class, "index"])->name("flights");
+    Route::get("/create_flights", [FlightsController::class, "create"])->name("create_flights");
+    Route::post("/store_flights", [FlightsController::class, "storeFlight"])
+        ->name("storeFlights");
+});

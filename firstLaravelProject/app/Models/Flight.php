@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Flight extends Model
 {
     protected $table = 'flights';
+    protected $fillable = ['name', 'created_at'];
 }
