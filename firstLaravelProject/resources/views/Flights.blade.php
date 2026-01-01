@@ -44,6 +44,6 @@ tr:nth-child(even) {
 
   @endif
 </table>
-
+{{ $data->links() }}
 </body>
 </html>

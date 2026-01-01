@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Flight;
 use Illuminate\Routing\RedirectController;
+use App\Http\Requests\CreateFlightRequest;
 
 class FlightsController extends Controller
 {
     public function index()
     {
-        $data = Flight::all();
+        $data = Flight::paginate(5);
         return view('Flights', ['data' => $data]);
     }
 
@@ -19,8 +20,11 @@ class FlightsController extends Controller
         return view('create_flights');
     }
 
-    public function storeFlight(Request $request)
+    public function storeFlight(CreateFlightRequest $request)
     {
+        // $validated = $request->validate([
+        //     "name" => "required",
+        // ]);
         $dataToInsert = [
             "name" => $request->name,
             "created_at" => date('Y-m-d H:i:s')
