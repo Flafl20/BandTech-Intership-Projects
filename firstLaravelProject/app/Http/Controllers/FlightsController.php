@@ -42,4 +42,11 @@ class FlightsController extends Controller
 
         return redirect()->route('flights')->with("success", 'Flight updated successfully');
     }
+    public function deleteFlight($id)
+    {
+        $dataToDelete = Flight::find($id);
+        $dataToDelete->delete();
+
+        return redirect()->route('flights')->with("success", 'Flight deleted successfully');
+    }
 }

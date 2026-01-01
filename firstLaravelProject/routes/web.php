@@ -45,4 +45,5 @@ Route::prefix("flights")->group(function () {
         ->name("storeFlights");
     Route::get("/update_flights/{id}", [FlightsController::class, "updateFlights"])->name("update_flights");
     Route::post("/update_flights/{id}", [FlightsController::class, "storeUpdatedFlight"])->name("storeUpdatedFlight");
+    Route::get("/delete_flight/{id}", [FlightsController::class, "deleteFlight"])->name("delete_flight");
 });
