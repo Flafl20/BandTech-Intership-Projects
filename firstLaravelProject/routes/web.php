@@ -43,4 +43,6 @@ Route::prefix("flights")->group(function () {
     Route::get("/create_flights", [FlightsController::class, "create"])->name("create_flights");
     Route::post("/store_flights", [FlightsController::class, "storeFlight"])
         ->name("storeFlights");
+    Route::get("/update_flights/{id}", [FlightsController::class, "updateFlights"])->name("update_flights");
+    Route::post("/update_flights/{id}", [FlightsController::class, "storeUpdatedFlight"])->name("storeUpdatedFlight");
 });

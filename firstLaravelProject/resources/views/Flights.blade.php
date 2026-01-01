@@ -28,13 +28,15 @@ tr:nth-child(even) {
   <tr>
     <th>name</th>
     <th>date</th>
+    <th></th>
   </tr>
   @if (@isset($data) && !@empty($data))
   
   @foreach ( $data as $info)
     <tr>
-      <th>{{$info->name}}</th>
-      <th>{{$info->created_at}}</th>
+      <td>{{$info->name}}</th>
+      <td>{{$info->created_at}}</th>
+      <td><a href="{{ route("update_flights", $info->id) }}">EDIT</a></td>
     </tr>
   @endforeach
 
