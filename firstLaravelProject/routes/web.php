@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DrugController;
 use App\Http\Controllers\FlightsController;
+use App\Http\Controllers\ResFlightContrller;
 use App\Http\Controllers\UserController;
 use App\Models\Flight;
 use Illuminate\Support\Facades\Route;
@@ -47,3 +49,7 @@ Route::prefix("flights")->group(function () {
     Route::post("/update_flights/{id}", [FlightsController::class, "storeUpdatedFlight"])->name("storeUpdatedFlight");
     Route::get("/delete_flight/{id}", [FlightsController::class, "deleteFlight"])->name("delete_flight");
 });
+
+Route::resource("drugs", DrugController::class);
+Route::get("/drugs/soft_delete/{id}", [DrugController::class, "softDelete"])->name("drugs.softDeletes");
+Route::get("/drugs/restore/{id}", [DrugController::class, "restore"])->name("drugs.restore");

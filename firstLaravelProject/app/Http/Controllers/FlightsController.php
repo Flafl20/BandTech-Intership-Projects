@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Flight;
 use Illuminate\Routing\RedirectController;
 use App\Http\Requests\CreateFlightRequest;
+use Illuminate\Support\Facades\DB;
 
 class FlightsController extends Controller
 {
     public function index()
     {
-        $data = Flight::paginate(5);
+        // $data = Flight::where('id', ">", 5)->orderby("name", "ASC")->take(5)->get();
+        $data = DB::table("flights")->orderby("name", "DESC")->get();
         return view('Flights', ['data' => $data]);
     }
 
